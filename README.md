@@ -1,4 +1,4 @@
-# Hiatus Assignment by David Moreno
+# Application made with Clean Architecture, MVVM pattern, Jetpack Compose consuming REST and GraphQl APIs
 
 ## Documentation and usage
 Before you begin, please review the following prerequisites and documentation: https://itunes.apple.com/us/rss/topalbums/limit=100/json and https://studio.apollographql.com/public/star-wars-swapi/explorer?variant=current
