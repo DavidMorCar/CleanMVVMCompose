@@ -1,0 +1,104 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id("com.apollographql.apollo3").version("3.2.1")
+}
+
+android {
+    compileSdk globaldependencies.compilesdk_version
+
+    defaultConfig {
+        applicationId "com.davidmoreno.cleanmvvmcompose"
+        minSdk globaldependencies.minsdk_version
+        targetSdk globaldependencies.targetsdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerVersion '1.5.21'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    // Kotlin and Android dependencies
+    implementation globaldependencies.ktxcore
+    implementation globaldependencies.appcompat
+    // Life cycle and architecture components dependencies
+    implementation globaldependencies.lifecycleextensions
+    implementation globaldependencies.lifecycleviewmodel
+    implementation globaldependencies.fragment
+    implementation globaldependencies.splashscreen
+    implementation globaldependencies.coroutines
+    // View and design dependencies
+    implementation globaldependencies.recyclerview
+    implementation globaldependencies.material
+    implementation globaldependencies.constraintlayout
+    implementation globaldependencies.composeui
+    implementation globaldependencies.composematerial
+    implementation globaldependencies.uitoolingpreview
+    implementation globaldependencies.viewmodelcompose
+    implementation globaldependencies.navigationcompose
+    implementation globaldependencies.iconsextended
+    implementation globaldependencies.hiltnavigationcompose
+    implementation globaldependencies.glide
+    kapt globaldependencies.glidecompiler
+    //Apollo - GraphQL
+    implementation globaldependencies.apollo
+    //Dagger - Hilt
+    implementation globaldependencies.hiltandroid
+    kapt globaldependencies.hiltandroidcompiler
+    implementation globaldependencies.hiltlifecycleviewmodel
+    kapt globaldependencies.hiltcompiler
+    // API petitions dependencies
+    implementation globaldependencies.retrofit
+    implementation globaldependencies.convertergson
+    // Testing dependencies
+    testImplementation globaldependencies.junit
+    testImplementation globaldependencies.truth
+    implementation globaldependencies.testcore
+    testImplementation globaldependencies.archcoretestin
+    testImplementation globaldependencies.coroutinestest
+    // Instrumented Unit Tests
+    androidTestImplementation globaldependencies.junit
+    androidTestImplementation globaldependencies.truth
+    androidTestImplementation globaldependencies.coroutinestest
+    androidTestImplementation globaldependencies.extjunit
+    androidTestImplementation globaldependencies.hilttesting
+    kaptAndroidTest globaldependencies.hiltandroidcompiler
+    androidTestImplementation globaldependencies.espressocontrib
+}
+
+apollo {
+    packageName.set("com.davidmoreno.cleanmvvmcompose")
+}

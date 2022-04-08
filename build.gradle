@@ -1,0 +1,128 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.38.1"
+    }
+}
+
+ext {
+    ktxcore_version = '1.7.0'
+    appcompat_version = '1.4.1'
+    lifecycleextensions_version = '2.2.0'
+    lifecycleviewmodel_version = '2.4.1'
+    lifecycleruntime_version = '2.4.1'
+    fragment_version = '1.5.0-alpha03'
+    splashscreen_version = '1.0.0-beta01'
+    coroutines_version = '1.5.2'
+    hiltandroid_version = '2.38.1'
+    hiltandroidcompiler_version = '2.37'
+    hiltlifecycleviewmodel_version = '1.0.0-alpha03'
+    hiltcompiler_version = '1.0.0'
+    hiltnavigationcompose_version = '1.0.0-alpha03'
+    roomruntime_version = '2.3.0'
+    roomcompiler_version = '2.3.0'
+    apollo_version = '3.2.1'
+    recyclerview_version = '1.2.1'
+    spinkit_version = '1.4.0'
+    picasso_version = '2.71828'
+    material_version = '1.5.0'
+    constraintlayout_version = '2.1.3'
+    glide_version = '4.11.0'
+    compose_version = '1.0.1'
+    navigationcompose_version = '2.4.0-alpha09'
+    activitycompose_version = '1.4.0'
+    viewmodelcompose_version = '2.4.0-beta01'
+    retrofit_version = '2.9.0'
+    convertergson_version = '2.9.0'
+    junit_version = '4.13'
+    truth_version = '1.1.3'
+    androidespresso_version = '3.4.0'
+    mockito_version = '2.28.2'
+    testcore_version = '1.4.0'
+    hamcrest_version = '1.3'
+    archcoretestin_version = '2.1.0'
+    robolectric_version = '4.3.1'
+    coroutinestest_version = '1.2.1'
+    dexmaker_version = '2.12.1'
+    extjunit_version = '1.1.1'
+    hilttesting_version = '2.28-alpha'
+    fragmenttesting_version = '1.3.0-alpha08'
+    espressocontrib_version = '3.3.0'
+
+    globaldependencies = [
+            // Kotlin and Android dependencies
+            ktxcore               : "androidx.core:core-ktx:$ktxcore_version",
+            appcompat             : "androidx.appcompat:appcompat:$appcompat_version",
+            // Life cycle and architecture components dependencies
+            lifecycleextensions   : "androidx.lifecycle:lifecycle-extensions:$lifecycleextensions_version",
+            lifecycleviewmodel    : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleviewmodel_version",
+            lifecycleruntime      : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleruntime_version",
+            fragment              : "androidx.fragment:fragment-ktx:$fragment_version",
+            splashscreen          : "androidx.core:core-splashscreen:$splashscreen_version",
+            coroutines            : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version",
+            // Dependency injection
+            hiltandroid           : "com.google.dagger:hilt-android:$hiltandroid_version",
+            hiltandroidcompiler   : "com.google.dagger:hilt-android-compiler:$hiltandroidcompiler_version",
+            hiltlifecycleviewmodel: "androidx.hilt:hilt-lifecycle-viewmodel:$hiltlifecycleviewmodel_version",
+            hiltcompiler          : "androidx.hilt:hilt-compiler:$hiltcompiler_version",
+            hiltnavigationcompose : "androidx.hilt:hilt-navigation-compose:$hiltnavigationcompose_version",
+            // Room
+            roomruntime           : "androidx.room:room-runtime:$roomruntime_version",
+            roomcompiler          : "androidx.room:room-compiler:$roomcompiler_version",
+            //GraphQl
+            apollo                : "com.apollographql.apollo3:apollo-runtime:$apollo_version",
+            // View and design dependencies
+            recyclerview          : "androidx.recyclerview:recyclerview:$recyclerview_version",
+            picasso               : "com.squareup.picasso:picasso:$picasso_version",
+            spinKit               : "com.github.ybq:Android-SpinKit:$spinkit_version",
+            material              : "com.google.android.material:material:$material_version",
+            constraintlayout      : "androidx.constraintlayout:constraintlayout:$constraintlayout_version",
+            glide                 : "com.github.bumptech.glide:glide:$glide_version",
+            glidecompiler         : "com.github.bumptech.glide:compiler:$glide_version",
+            // Kotlin Compose
+            composeui             : "androidx.compose.ui:ui:$compose_version",
+            composematerial       : "androidx.compose.material:material:$compose_version",
+            uitoolingpreview      : "androidx.compose.ui:ui-tooling-preview:$compose_version",
+            activitycompose       : "androidx.activity:activity-compose:$activitycompose_version",
+            viewmodelcompose      : "androidx.lifecycle:lifecycle-viewmodel-compose:$viewmodelcompose_version",
+            navigationcompose     : "androidx.navigation:navigation-compose:$navigationcompose_version",
+            iconsextended         : "androidx.compose.material:material-icons-extended:$compose_version",
+            // API connection dependencies
+            retrofit              : "com.squareup.retrofit2:retrofit:$retrofit_version",
+            convertergson         : "com.squareup.retrofit2:converter-gson:$convertergson_version",
+            // Testing dependencies
+            junit                 : "junit:junit:$junit_version",
+            truth                 : "com.google.truth:truth:$truth_version",
+            // Local Unit Tests
+            testcore              : "androidx.test:core:$testcore_version",
+            hamcrest              : "org.hamcrest:hamcrest-all:$hamcrest_version",
+            archcoretestin        : "androidx.arch.core:core-testing:$archcoretestin_version",
+            mockito               : "org.mockito:mockito-core:$mockito_version",
+            mockitoAndroid        : "org.mockito:mockito-android:$mockito_version",
+            robolectric           : "org.robolectric:robolectric:$robolectric_version",
+            coroutinestest        : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinestest_version",
+            // View and Instrumented Unit Tests
+            composeuijunit        : "androidx.compose.ui:ui-testjunit4:$compose_version",
+            composeuitooling      : "androidx.compose.ui:ui-tooling:$compose_version",
+            dexmaker              : "com.linkedin.dexmaker:dexmaker-mockito:$dexmaker_version",
+            extjunit              : "androidx.test.ext:junit:$extjunit_version",
+            hilttesting           : "com.google.dagger:hilt-android-testing:$hilttesting_version",
+            fragmenttesting       : "androidx.fragment:fragment-testing:$fragmenttesting_version",
+            espressocontrib       : "androidx.test.espresso:espresso-contrib:$espressocontrib_version",
+            espresso              : "androidx.test.espresso:espresso-core:$androidespresso_version",
+            // Global constants
+            compilesdk_version    : 31,
+            minsdk_version        : 23,
+            targetsdk_version     : 31
+    ]
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
