@@ -1,6 +1,6 @@
 package com.davidmoreno.cleanmvvmcompose.view.album
 
-import com.davidmoreno.cleanmvvmcompose.domain.model.request.Album
+import com.davidmoreno.cleanmvvmcompose.domain.model.response.Album
 import com.davidmoreno.cleanmvvmcompose.domain.util.CommonOrder
 import com.davidmoreno.cleanmvvmcompose.domain.util.OrderType
 

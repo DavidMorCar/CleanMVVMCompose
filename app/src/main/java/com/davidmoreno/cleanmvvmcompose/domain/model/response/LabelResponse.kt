@@ -1,4 +1,4 @@
-package com.davidmoreno.cleanmvvmcompose.domain.model.request
+package com.davidmoreno.cleanmvvmcompose.domain.model.response
 
 import com.google.gson.annotations.SerializedName
 

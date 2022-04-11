@@ -1,4 +1,4 @@
-# Application made with Clean Architecture, MVVM pattern, Jetpack Compose consuming REST and GraphQl APIs
+# Application made with Clean Architecture, MVVM pattern, Jetpack Compose consuming REST and GraphQL APIs
 
 ## Documentation and usage
 Before you begin, please review the following prerequisites and documentation: https://itunes.apple.com/us/rss/topalbums/limit=100/json and https://studio.apollographql.com/public/star-wars-swapi/explorer?variant=current
@@ -37,7 +37,9 @@ In the first screen we have the list of best albums from the endpoint: https://i
 - The icon at the top shows a sort panel to help find a specific album.
 - The floating button with the developer tools icon takes you to the developer LinkedIn profile.
 - The floating button with the airplane icon takes you to the Movie List View.
+
 ![MVVMCompose3](MVVMCompose1.jpg)
+
 ![MVVMCompose1](MVVMCompose3.jpg)
 
 ### Film List Screen
@@ -46,7 +48,9 @@ In the second screen we have the list of StarWars films from the graphQL endpoin
 - The icon at the top shows a sort panel to help find a specific film.
 - The floating button with the developer tools icon takes you to the developer LinkedIn profile.
 - The back button takes you to the first view.
+
 ![MVVMCompose2](MVVMCompose2.jpg)
+
 ![MVVMCompose](MVVMCompose.jpg)
 
 ## Dependencies

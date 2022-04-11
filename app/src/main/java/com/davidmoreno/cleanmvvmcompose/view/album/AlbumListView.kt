@@ -15,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.davidmoreno.cleanmvvmcompose.component.AlbumItem
 import com.davidmoreno.cleanmvvmcompose.component.OrderSection
 import com.davidmoreno.cleanmvvmcompose.component.Screen
-import com.davidmoreno.cleanmvvmcompose.component.SongItem
 import com.davidmoreno.cleanmvvmcompose.domain.util.openURL
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -110,8 +110,9 @@ fun SongListView(
             Spacer(modifier = Modifier.height(16.dp))
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(state.albumList) { song ->
-                    SongItem(
+                    AlbumItem(
                         album = song,
+                        context = context,
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {

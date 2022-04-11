@@ -1,5 +1,6 @@
 package com.davidmoreno.cleanmvvmcompose.component
 
+import android.content.Context
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.Image
@@ -18,7 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.davidmoreno.cleanmvvmcompose.domain.model.request.Album
+import com.davidmoreno.cleanmvvmcompose.domain.model.response.Album
 import com.davidmoreno.cleanmvvmcompose.domain.util.DEFAULT_IMAGE
 import com.davidmoreno.cleanmvvmcompose.domain.util.loadPicture
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -26,10 +27,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 /** SongItem composable view */
 @ExperimentalCoroutinesApi
 @Composable
-fun SongItem(
+fun AlbumItem(
     album: Album,
     modifier: Modifier = Modifier,
     cornerRadius: Dp = 10.dp,
+    context: Context,
     cutCornerSize: Dp = 30.dp,
 ) {
     Box(
@@ -63,7 +65,7 @@ fun SongItem(
                 val image = loadPicture(
                     url = url,
                     defaultImage = DEFAULT_IMAGE,
-                    context = LocalContext.current
+                    context = context
                 ).value
                 image?.let { img ->
                     Image(
