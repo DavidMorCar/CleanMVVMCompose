@@ -1,6 +1,6 @@
 package com.davidmoreno.cleanmvvmcompose.domain.usecase
 
-/** SongList main UseCase */
+/** AlbumList main UseCase */
 data class AlbumListUseCase(
     val getAlbumList: GetAlbumListCase,
 )

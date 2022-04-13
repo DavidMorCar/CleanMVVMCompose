@@ -2,7 +2,7 @@ package com.davidmoreno.cleanmvvmcompose.domain.repository.album
 
 import com.davidmoreno.cleanmvvmcompose.domain.model.response.Album
 
-/** BaseSong repository */
+/** BaseAlbum repository */
 interface BaseAlbumRepository {
-    suspend fun getSongList(): List<Album>?
+    suspend fun getAlbumList(): List<Album>?
 }

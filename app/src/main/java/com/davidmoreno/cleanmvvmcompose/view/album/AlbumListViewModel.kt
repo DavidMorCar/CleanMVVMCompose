@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
-/** iTuns songs ViewModel */
+/** iTuns albums ViewModel */
 @HiltViewModel
 class AlbumListViewModel @Inject constructor(
     private val albumListUseCase: AlbumListUseCase
@@ -21,23 +21,23 @@ class AlbumListViewModel @Inject constructor(
     private val _state = mutableStateOf(AlbumListState())
     val state: State<AlbumListState> = _state
 
-    private var getSongListJob: Job? = null
+    private var getAlbumListJob: Job? = null
 
     /** First state of the ViewModel */
     init {
-        getSongList(CommonOrder.Title(OrderType.Ascending))
+        getAlbumList(CommonOrder.Title(OrderType.Ascending))
     }
 
     /** Function to call if any event changed */
     fun onEvent(event: AlbumListEvent) {
         when (event) {
             is AlbumListEvent.Order -> {
-                if (state.value.songOrder::class == event.commonOrder::class &&
-                    state.value.songOrder.orderType == event.commonOrder.orderType
+                if (state.value.albumOrder::class == event.commonOrder::class &&
+                    state.value.albumOrder.orderType == event.commonOrder.orderType
                 ) {
                     return
                 }
-                getSongList(event.commonOrder)
+                getAlbumList(event.commonOrder)
             }
             else -> {
                 _state.value = state.value.copy(
@@ -48,13 +48,13 @@ class AlbumListViewModel @Inject constructor(
     }
 
     /** Function to make the Album call */
-    private fun getSongList(commonOrder: CommonOrder) {
-        getSongListJob?.cancel()
-            getSongListJob = albumListUseCase.getAlbumList(commonOrder)
-                .onEach { songs ->
+    private fun getAlbumList(commonOrder: CommonOrder) {
+        getAlbumListJob?.cancel()
+            getAlbumListJob = albumListUseCase.getAlbumList(commonOrder)
+                .onEach { albums ->
                     _state.value = state.value.copy(
-                        albumList = songs,
-                        songOrder = commonOrder
+                        albumList = albums,
+                        albumOrder = commonOrder
                     )
                 }
                 .launchIn(viewModelScope)

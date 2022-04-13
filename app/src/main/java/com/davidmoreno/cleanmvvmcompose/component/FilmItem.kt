@@ -21,7 +21,7 @@ import com.davidmoreno.cleanmvvmcompose.FilmQuery
 import com.davidmoreno.cleanmvvmcompose.domain.util.MOVIE_IMAGE
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-/** SongList composable view */
+/** AlbumList composable view */
 @ExperimentalCoroutinesApi
 @Composable
 fun FilmItem(

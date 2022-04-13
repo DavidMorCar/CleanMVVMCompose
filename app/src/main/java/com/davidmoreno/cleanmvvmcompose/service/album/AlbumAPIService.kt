@@ -7,7 +7,7 @@ class AlbumAPIService constructor(
     private var service: AlbumAPI
 ) {
 
-    /** Function to load a SongList */
+    /** Function to load a AlbumList */
     suspend fun getAlbumList(): List<Album>? {
         val call = service.getAlbumService()
         val response = call.body()

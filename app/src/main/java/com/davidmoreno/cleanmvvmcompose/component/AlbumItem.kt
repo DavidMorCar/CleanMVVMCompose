@@ -24,7 +24,7 @@ import com.davidmoreno.cleanmvvmcompose.domain.util.DEFAULT_IMAGE
 import com.davidmoreno.cleanmvvmcompose.domain.util.loadPicture
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-/** SongItem composable view */
+/** AlbumItem composable view */
 @ExperimentalCoroutinesApi
 @Composable
 fun AlbumItem(

@@ -8,30 +8,30 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
-/** Class to load and sort the SongList */
+/** Class to load and sort the AlbumList */
 class GetAlbumListCase(
     private val repository: BaseAlbumRepository
 ) {
 
     operator fun invoke(
-        songOrder: CommonOrder = CommonOrder.Title(orderType = OrderType.Descending)
+        albumOrder: CommonOrder = CommonOrder.Title(orderType = OrderType.Descending)
     ): Flow<List<Album>> {
-        return flow { emit(repository.getSongList()) }.map { notes ->
-            when (songOrder.orderType) {
+        return flow { emit(repository.getAlbumList()) }.map { albums ->
+            when (albumOrder.orderType) {
                 is OrderType.Ascending -> {
-                    when (songOrder) {
-                        is CommonOrder.Title -> notes!!.sortedBy { it.title.label.lowercase() }
-                        is CommonOrder.Price -> notes!!.sortedBy {
+                    when (albumOrder) {
+                        is CommonOrder.Title -> albums!!.sortedBy { it.title.label.lowercase() }
+                        is CommonOrder.Price -> albums!!.sortedBy {
                             it.price.label.replace("$", "").toDouble()
                         }
                     }
                 }
                 is OrderType.Descending -> {
-                    when (songOrder) {
-                        is CommonOrder.Title -> notes!!.sortedByDescending {
+                    when (albumOrder) {
+                        is CommonOrder.Title -> albums!!.sortedByDescending {
                             it.title.label.lowercase()
                         }
-                        is CommonOrder.Price -> notes!!.sortedByDescending {
+                        is CommonOrder.Price -> albums!!.sortedByDescending {
                             it.price.label.replace("$", "").toDouble()
                         }
                     }

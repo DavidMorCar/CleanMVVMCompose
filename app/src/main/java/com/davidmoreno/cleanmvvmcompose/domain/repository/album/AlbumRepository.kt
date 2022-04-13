@@ -11,7 +11,7 @@ class AlbumRepository(
 
     private val albumService: AlbumAPIService = AlbumAPIService(albumAPI)
 
-    override suspend fun getSongList(): List<Album>? {
+    override suspend fun getAlbumList(): List<Album>? {
         return albumService.getAlbumList()
     }
 }

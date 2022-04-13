@@ -21,11 +21,11 @@ import com.davidmoreno.cleanmvvmcompose.component.Screen
 import com.davidmoreno.cleanmvvmcompose.domain.util.openURL
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-/** SongList composable view */
+/** AlbumList composable view */
 @ExperimentalCoroutinesApi
 @ExperimentalAnimationApi
 @Composable
-fun SongListView(
+fun AlbumListView(
     navController: NavController,
     viewModel: AlbumListViewModel = hiltViewModel(),
     context: Activity
@@ -100,7 +100,7 @@ fun SongListView(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 16.dp),
-                    order = state.songOrder,
+                    order = state.albumOrder,
                     isPriceVisible = true,
                     onOrderChange = {
                         viewModel.onEvent(AlbumListEvent.Order(it))
@@ -109,14 +109,14 @@ fun SongListView(
             }
             Spacer(modifier = Modifier.height(16.dp))
             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(state.albumList) { song ->
+                items(state.albumList) { album ->
                     AlbumItem(
-                        album = song,
+                        album = album,
                         context = context,
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                openURL(song.url.label, context)
+                                openURL(album.url.label, context)
                             },
                     )
                     Spacer(modifier = Modifier.height(16.dp))
